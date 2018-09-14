@@ -41,10 +41,11 @@ public class ProdutoDAO {
             st.execute();
         } catch (SQLException ex) {
             System.out.println("não conectado");
+            System.out.println(ex.getMessage());
         }
     }
     
-    public List<Produto> listarRegistros() throws SQLException {
+    public List<Produto> listarProdutos() throws SQLException {
         List<Produto> produtos = new ArrayList<Produto>();
         Connection conexao = FabricaConexao.getConnection();
         
@@ -69,7 +70,7 @@ public class ProdutoDAO {
                 produtos.add(pro);
             }
         } catch (SQLException ex) {
-
+            System.out.println(ex.getMessage());
         } 
 
         return produtos;

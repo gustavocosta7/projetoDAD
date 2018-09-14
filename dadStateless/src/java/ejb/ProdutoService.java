@@ -10,22 +10,26 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import modelo.IProdutoService;
 import modelo.Produto;
+import modelo.dao.ProdutoDAO;
 
 @Stateless
 @Remote(IProdutoService.class)
 public class ProdutoService implements IProdutoService{
-
+    ProdutoDAO dao = new ProdutoDAO();
     @Override
     public void inserir(Produto p) {
+        dao.inserir(p);
+        
     }
 
     @Override
     public List<Produto> listar() {
-        return null;
+        return dao.listarProdutos();
     }
 
     @Override
     public void remover(Produto p) {
+        dao.delete(p);
     }
     
 }

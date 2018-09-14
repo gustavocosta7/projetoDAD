@@ -19,7 +19,7 @@ import modelo.Produto;
  */
 public class ProdutoDAO {
     
-     public void inserir(Produto p) throws SQLException {
+     public void inserir(Produto p){
         Connection conexao = FabricaConexao.getConnection();
         try {
             String query = "insert into produto(pronome,provalor) values(?, ?)";
@@ -32,7 +32,7 @@ public class ProdutoDAO {
         }
     }
      
-    public void delete(Produto p) throws SQLException{
+    public void delete(Produto p){
         Connection conexao = FabricaConexao.getConnection();
         try {
             String query = "delete from produto where id=?";
@@ -45,7 +45,7 @@ public class ProdutoDAO {
         }
     }
     
-    public List<Produto> listarProdutos() throws SQLException {
+    public List<Produto> listarProdutos(){
         List<Produto> produtos = new ArrayList<Produto>();
         Connection conexao = FabricaConexao.getConnection();
         

@@ -1,8 +1,8 @@
-package model;
+package modelo;
 
 
 
-import model.Item;
+import modelo.Item;
 import java.util.List;
 
 

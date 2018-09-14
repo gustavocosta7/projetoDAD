@@ -7,42 +7,35 @@ import java.io.Serializable;
 
 public class Item implements Serializable{
     
-    private String produto;
-    private double valor;
-    private double quantidade;
+    private Produto produto;
+    private int quantidade;
 
-    public Item(String produto, double valor, double quantidade) {
+    public Item(Produto produto) {
         this.produto = produto;
-        this.valor = valor;
-        this.quantidade = quantidade;
     }
 
-    public Item() {
-    }
-
-    public String getProduto() {
+    public Produto getProduto() {
         return produto;
     }
 
-    public void setProduto(String produto) {
+    public void setProduto(Produto produto) {
         this.produto = produto;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public double getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(double quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+   
+
+
+    public double getTotalItem() {
+        return produto.getValor() * quantidade;
+        }
 
     
 }

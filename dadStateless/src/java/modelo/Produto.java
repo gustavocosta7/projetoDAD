@@ -10,6 +10,8 @@ public class Produto {
         this.nome = nome;
         this.valor = valor;
     }
+    
+    public Produto(){}
 
     public int getCodigo() {
         return codigo;

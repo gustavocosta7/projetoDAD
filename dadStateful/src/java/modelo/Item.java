@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 
 public class Item implements Serializable{
-    
+    private static final long serialVersion = 1L;
     private Produto produto;
     private int quantidade;
 

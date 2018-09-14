@@ -1,10 +1,12 @@
 
 package modelo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-public class Compra {
+public class Compra implements Serializable{
+    private static final long serialVersion = 1L;
     private Calendar dataDaCompra;
     private List<Item> itens;
 

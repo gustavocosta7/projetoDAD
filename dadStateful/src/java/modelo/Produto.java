@@ -13,8 +13,6 @@ public class Produto implements Serializable{
         this.nome = nome;
         this.valor = valor;
     }
-    
-    public Produto(){}
 
     public int getCodigo() {
         return codigo;

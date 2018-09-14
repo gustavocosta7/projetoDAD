@@ -21,7 +21,7 @@ public class ProdutoService implements IProdutoService{
 
     @Override
     public List<Produto> listar() {
-        return new List<Produto>();
+        return null;
     }
 
     @Override

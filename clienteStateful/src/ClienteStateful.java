@@ -5,8 +5,8 @@
  */
 
 
-import model.ICarrinho;
-import model.Item;
+import modelo.ICarrinho;
+import modelo.Item;
 import java.util.List;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

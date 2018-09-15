@@ -5,11 +5,17 @@
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modelo.ICarrinho;
 import modelo.Item;
 import java.util.List;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import modelo.IProdutoService;
+import modelo.Produto;
+import view.GerenciarProduto;
+import view.RealizarCompra;
 
 /**
  *
@@ -17,23 +23,59 @@ import javax.naming.NamingException;
  */
 public class ClienteStateful {
 
-    /**
-     * @param args the command line arguments
-     */
+    private GerenciarProduto viewProduto;
+    private RealizarCompra viewCompra;
+    private ICarrinho carrinho;
+    private IProdutoService produto;
+    
+    
+
     public static void main(String[] args) throws NamingException {
+        GerenciarProduto viewProduto = new GerenciarProduto();
+        RealizarCompra viewCompra = new RealizarCompra();
         
-        InitialContext context = new InitialContext();  //global/dadStateful/CarrinhoBean!ICarrinho
-        ICarrinho carrinho = (ICarrinho) context.lookup("ejb:/dadStateful/CarrinhoBean!ICarrinho?stateful");
-        Item item = new Item("agua", 123, 12);
-        carrinho.inserir(item);
-        List<Item> lista = carrinho.listar();
+        viewProduto.setVisible(true);
+        viewCompra.setVisible(true);
         
-        for(Item i : lista){
-            System.out.println(i.getProduto());
-            System.out.println(i.getQuantidade());
-            System.out.println(i.getValor());
-        }
+        
+        InitialContext contexto = new InitialContext();
+        ICarrinho stateful = (ICarrinho) contexto.lookup("ejb:/dadStateful/!ejb.CarrinhoBean");
+        
+        contexto = new InitialContext();
+        IProdutoService stateless = (IProdutoService) contexto.lookup("ejb:/dadStateless/ProdutoService!modelo.IProdutoService");
+        
+        ClienteStateful carrinho = new ClienteStateful(viewProduto, viewCompra, stateful,stateless);
+        
+        
+        
+    }
+
+    private ClienteStateful(GerenciarProduto view, RealizarCompra viewCompra, ICarrinho service, IProdutoService stateless) {
+        this.viewProduto = view;
+        this.viewCompra = viewCompra;
+        this.carrinho = service;
+        this.produto = stateless;
+        listarProduto();
+        
+        viewProduto.addBtnCadastrar(new Cadastrar());
         
     }
     
+    
+    public void listarProduto(){
+        
+    }
+    
+    class Cadastrar implements ActionListener{
+      @Override
+        public void actionPerformed(ActionEvent e) {
+
+            viewProduto.getTfCodigo()
+
+            produto.inserir(p);
+        }
+
+    }
 }
+
+

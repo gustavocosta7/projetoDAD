@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Aluno.LAB07MAQ05/Documents/GitHub/projetoDAD/clienteStateful/src/modelo/Item.java</file>
-            <file>file:/C:/Users/Aluno.LAB07MAQ05/Documents/GitHub/projetoDAD/clienteStateful/src/view/RealizarCompra.java</file>
-            <file>file:/C:/Users/Aluno.LAB07MAQ05/Documents/GitHub/projetoDAD/clienteStateful/src/modelo/Compra.java</file>
-            <file>file:/C:/Users/Aluno.LAB07MAQ05/Documents/GitHub/projetoDAD/clienteStateful/src/modelo/Produto.java</file>
+            <file>file:/home/fernando/Documentos/projetoDAD/projetoDAD/clienteStateful/src/view/GerenciarProduto.java</file>
+            <file>file:/home/fernando/Documentos/projetoDAD/projetoDAD/clienteStateful/src/ClienteStateful.java</file>
         </group>
     </open-files>
 </project-private>

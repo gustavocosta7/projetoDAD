@@ -31,5 +31,10 @@ public class ProdutoService implements IProdutoService{
     public void remover(Produto p) {
         dao.delete(p);
     }
+
+    @Override
+    public void busca(Produto p) {
+//        dao
+    }
     
 }

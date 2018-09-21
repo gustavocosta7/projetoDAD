@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import modelo.Produto;
 
 /**
@@ -19,17 +21,22 @@ import modelo.Produto;
  */
 public class ProdutoDAO {
     
+    @PersistenceContext
+    private EntityManager em;
+    
      public void inserir(Produto p){
-        Connection conexao = FabricaConexao.getConnection();
-        try {
-            String query = "insert into produto(pronome,provalor) values(?, ?)";
-            PreparedStatement st = conexao.prepareStatement(query);
-            st.setString(1, p.getNome());
-            st.setDouble(2, p.getValor());
-            st.execute();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+         
+        
+//        Connection conexao = FabricaConexao.getConnection();
+//        try {
+//            String query = "insert into produto(pronome,provalor) values(?, ?)";
+//            PreparedStatement st = conexao.prepareStatement(query);
+//            st.setString(1, p.getNome());
+//            st.setDouble(2, p.getValor());
+//            st.execute();
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
     }
      
     public void delete(Produto p){

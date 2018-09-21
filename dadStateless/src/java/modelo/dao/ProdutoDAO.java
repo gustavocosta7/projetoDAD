@@ -77,9 +77,23 @@ public class ProdutoDAO {
     }
     
     
-     
-     
-    
-    
-    
+    public Produto findProduto(Produto p){
+        Produto produto;
+        try{
+            //ABRE CONEXAO COM BANCO DE DADOS
+            Connection conexao = FabricaConexao.getConnection();
+            // CRIA O COMANDO SQL PARA SELECIONAR TODOS OS DADOS DO BANCO
+            String sql = "SELECT proid,pronome,provalor FROM produto WHERE pronome = ?" ;
+            //PREPARA O COMANDO PARA UMA INSTRUCAO ACEITAVEL DO SQL
+            PreparedStatement instrucao = conexao.prepareStatement(sql);
+            instrucao.setString(1, p.getNome());
+            //EXECULTA E ALOCA O RESULTADO EM UM OBJETO RESULTSET
+            ResultSet resultSet = instrucao.executeQuery();
+            produto = new Produto(resultSet.getInt("proid"), resultSet.getString("pronome"), resultSet.getDouble("provalor"));
+            return  produto;
+        }catch(SQLException e){
+            System.out.println("modelo.dao.ProdutoDAO.findProduto() "+ e);
+        }
+        return null;
+    }   
 }

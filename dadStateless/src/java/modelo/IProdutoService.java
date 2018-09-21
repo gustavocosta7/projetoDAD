@@ -16,5 +16,5 @@ public interface IProdutoService {
     public void inserir(Produto p);
     public List<Produto> listar();
     public void remover(Produto p);
-    public void busca(Produto p);
+    public Produto getProduto(Produto p);
 }

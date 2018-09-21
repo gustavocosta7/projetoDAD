@@ -33,8 +33,7 @@ public class ProdutoService implements IProdutoService{
     }
 
     @Override
-    public void busca(Produto p) {
-//        dao
+    public Produto getProduto(Produto p) {
+        return dao.findProduto(p);
     }
-    
 }

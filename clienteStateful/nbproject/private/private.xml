@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/fernando/Documentos/projetoDAD/projetoDAD/clienteStateful/src/view/GerenciarProduto.java</file>
-            <file>file:/home/fernando/Documentos/projetoDAD/projetoDAD/clienteStateful/src/ClienteStateful.java</file>
+            <file>file:/mnt/0eae5fa5-5056-473f-b019-9a2791ca5196/NetBeansProjects/projetoDAD/clienteStateful/src/controller/CompraController.java</file>
+            <file>file:/mnt/0eae5fa5-5056-473f-b019-9a2791ca5196/NetBeansProjects/projetoDAD/clienteStateful/src/view/RealizarCompra.java</file>
+            <file>file:/mnt/0eae5fa5-5056-473f-b019-9a2791ca5196/NetBeansProjects/projetoDAD/clienteStateful/src/controller/ProdutoController.java</file>
+            <file>file:/mnt/0eae5fa5-5056-473f-b019-9a2791ca5196/NetBeansProjects/projetoDAD/clienteStateful/src/view/GerenciarProduto.java</file>
         </group>
     </open-files>
 </project-private>

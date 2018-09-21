@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import modelo.ProdutoTableModel;
 
 /**
  *
@@ -167,7 +168,9 @@ public class RealizarCompra extends javax.swing.JFrame {
             }
         });
     }
-
+public void seta(){
+    tbItens.setModel(new ProdutoTableModel(produtos));
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btIncluir;
     private javax.swing.JComboBox<String> cbProduto;

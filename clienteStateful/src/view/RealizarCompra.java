@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -192,12 +193,9 @@ public class RealizarCompra extends javax.swing.JFrame {
         this.cbProduto = cbProduto;
     }
 
-    public JTable getTbItens() {
-        return tbItens;
-    }
 
-    public void setTbItens(JTable tbItens) {
-        this.tbItens = tbItens;
+    public void setTbItens(DefaultTableModel model) {
+        this.tbItens.setModel(model);
     }
 
     public String getTfData() {

@@ -13,19 +13,18 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Aluno
  */
-public class ProdutoTableModel extends AbstractTableModel {
-    List<Produto> produtos = new ArrayList<Produto>();
+public class ItemTableModel extends AbstractTableModel {
+    List<Item> itens = new ArrayList<Item>();
 
-    public String[] colunas = {"Codigo", "Nome", "Valor"};
+    public String[] colunas = {"Codigo", "Nome", "Valor", "Qtd.", "Total"};
     
-    public ProdutoTableModel(List<Produto> produtos){
-        this.produtos = produtos;    
+    public ItemTableModel(List<Item> produtos){
+        this.itens = produtos;        
     }
 
-    public Object[] getListenerList() {
-        return listenerList.getListenerList();
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
     }
-
     
     @Override
     public String getColumnName(int num){
@@ -34,7 +33,7 @@ public class ProdutoTableModel extends AbstractTableModel {
     
     @Override
     public int getRowCount() {        
-        return produtos.size();
+        return itens.size();
     }
 
     @Override
@@ -42,20 +41,21 @@ public class ProdutoTableModel extends AbstractTableModel {
         return colunas.length;
     }
     
-    public Produto getPessoa(int linha){
-        return this.produtos.get(linha);
+    public Item getPessoa(int linha){
+        return this.itens.get(linha);
     }
             
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Produto produto = produtos.get(rowIndex);
+        Item item = itens.get(rowIndex);
         
         
         switch(columnIndex){
-            case 0: return produto.getCodigo();            
-            case 1: return produto.getNome();           
-            case 2: return produto.getValor();
-
+            case 0: return item.getProduto().getCodigo();            
+            case 1: return item.getProduto().getNome();           
+            case 2: return item.getProduto().getValor();
+            case 3: return item.getQuantidade();
+            case 4: return item.getTotalItem();
         }
         return null;
     }

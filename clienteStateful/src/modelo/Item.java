@@ -1,12 +1,9 @@
 package modelo;
 
-
 import java.io.Serializable;
 
+public class Item implements Serializable {
 
-
-public class Item implements Serializable{
-    
     private static final long serialVersion = 1L;
     private Produto produto;
     private int quantidade;
@@ -31,12 +28,8 @@ public class Item implements Serializable{
         this.quantidade = quantidade;
     }
 
-   
-
-
     public double getTotalItem() {
         return produto.getValor() * quantidade;
-        }
+    }
 
-    
 }

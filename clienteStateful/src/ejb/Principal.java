@@ -8,6 +8,8 @@ import modelo.IProdutoService;
 import view.GerenciarProduto;
 import view.RealizarCompra;
 import modelo.ICarrinhoBean;
+import modelo.Item;
+import modelo.Produto;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,7 +28,7 @@ public class Principal {
         IProdutoService produto = (IProdutoService) context.lookup("ejb:/dadStateless/ProdutoService!modelo.IProdutoService");
         InitialContext context1 = new InitialContext();    
         ICarrinhoBean carrinho = (ICarrinhoBean) context1.lookup("ejb:/dadStateful/CarrinhoBean!modelo.ICarrinhoBean?stateful");
-
+        
         RealizarCompra realizarCompra = new RealizarCompra();
 
         CompraController compraController = new CompraController(realizarCompra, carrinho, produto);

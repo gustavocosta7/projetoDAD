@@ -204,6 +204,20 @@ public class RealizarCompra extends javax.swing.JFrame {
         this.btIncluir.addActionListener(listener);
     }
 
+    public JTable getTbItens() {
+        return tbItens;
+    }
+
+    public void setTbItens(DefaultTableModel model) {
+        this.tbItens.setModel(model);
+    }
+    
+    
+    
+    public JComboBox getCombo(){
+        return cbProduto;
+    }
+
     public String getCbProduto() {
         return cbProduto.getSelectedItem().toString();
     }

@@ -10,8 +10,9 @@ public class Item implements Serializable{
     private Produto produto;
     private int quantidade;
 
-    public Item(Produto produto) {
+    public Item(Produto produto, int qtd) {
         this.produto = produto;
+        this.quantidade = qtd;
     }
 
     

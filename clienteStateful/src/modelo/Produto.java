@@ -14,6 +14,9 @@ public class Produto implements Serializable{
         this.valor = valor;
     }
 
+    public Produto() {
+    }
+
     public int getCodigo() {
         return codigo;
     }

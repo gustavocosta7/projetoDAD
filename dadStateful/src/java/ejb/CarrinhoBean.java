@@ -13,7 +13,7 @@ import modelo.Item;
 @Stateful
 public class CarrinhoBean implements ICarrinhoBean{
 
-    private Compra compra;
+    private Compra compra = new Compra();
     
     @Override
     public void inserir(Item item) {

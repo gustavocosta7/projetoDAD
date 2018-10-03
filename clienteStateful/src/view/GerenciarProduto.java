@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import modelo.Produto;
 
 /**
@@ -139,6 +140,11 @@ public class GerenciarProduto extends javax.swing.JFrame {
     public JTable getTblProduto() {
         return tblProduto;
     }
+    
+    public void setModelTable(TableModel model){
+        this.tblProduto.setModel(model);
+    }
+    
 
     public void setTblProduto(DefaultTableModel tblProduto) {
         this.tblProduto.setModel(tblProduto);

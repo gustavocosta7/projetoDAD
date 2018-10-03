@@ -20,7 +20,7 @@ import view.GerenciarProduto;
 public class ProdutoController {
 
     private final IProdutoService produto;
-    private List<Produto> produtos;
+    private List<Produto> produtos = null;
     
     private final GerenciarProduto view;
 
@@ -31,7 +31,7 @@ public class ProdutoController {
         
         view.addBtnCadastrar(new CadastraProduto());
         
-        produtos = produto.listar();
+        this.produtos = produto.listar();
         view.getTblProduto().setModel(new ProdutoTableModel(produtos));
     }
 

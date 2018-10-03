@@ -33,7 +33,10 @@ public class ProdutoTableModel extends AbstractTableModel {
     }
     
     @Override
-    public int getRowCount() {        
+    public int getRowCount() {   
+        if (produtos == null)
+            return 0;
+        
         return produtos.size();
     }
 

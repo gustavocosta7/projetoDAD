@@ -34,7 +34,6 @@ public class ProdutoService implements IProdutoService{
     public List<Produto> listar() {
         ProdutoDAO dao = new ProdutoDAO(em);
         return dao.listarProdutos();
-//        return null;
     }
 
     @Override

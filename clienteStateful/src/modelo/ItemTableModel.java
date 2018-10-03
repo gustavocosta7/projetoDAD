@@ -32,7 +32,9 @@ public class ItemTableModel extends AbstractTableModel {
     }
     
     @Override
-    public int getRowCount() {        
+    public int getRowCount() { 
+        if (itens == null)
+            return 0;
         return itens.size();
     }
 

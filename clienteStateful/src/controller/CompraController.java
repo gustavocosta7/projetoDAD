@@ -3,6 +3,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import modelo.IProdutoService;
 import modelo.Item;
 import modelo.ItemTableModel;
@@ -16,26 +19,44 @@ import modelo.ICarrinhoBean;
  * @author fernando
  */
 public class CompraController {
-    
-    private RealizarCompra view;
-    private ICarrinhoBean carrinho;
-    private IProdutoService iProduto;
-    private ItemTableModel tableModel;
-    private List<Item> itens;
+
+    private final RealizarCompra view;
+    private final ICarrinhoBean carrinho;
+    private  IProdutoService iProduto;
+    private List<Item> itens = null;
 
     public CompraController(RealizarCompra view, ICarrinhoBean carrinho, IProdutoService produto) {
+
         this.view = view;
         this.carrinho = carrinho;
         this.iProduto = produto;
-        itens = carrinho.listar();
         
+        view.setBtnUpdate(new AtualizarListener());
         this.view.setTbItens(new ItemTableModel(itens));
-        
-        
         view.addBtnIncluirListener(new IncluirListener());
+
     }
 
-    class IncluirListener implements ActionListener{
+    class AtualizarListener implements ActionListener {
+
+        private AtualizarListener() {
+     
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            for (Produto p : iProduto.listar()) {
+                System.out.println("Lista >" + p.getNome());
+                model.addElement(p.getNome());
+            }
+            view.setCbProduto(model);
+        }
+
+    }
+
+    class IncluirListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             String data = view.getTfData();
@@ -46,9 +67,9 @@ public class CompraController {
             carrinho.inserir(new Item(produto));
             itens.clear();
             itens = carrinho.listar();
-            
+
             view.addBtnIncluirListener(new IncluirListener());
-            
+
         }
-    }    
+    }
 }

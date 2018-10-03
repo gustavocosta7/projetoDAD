@@ -8,7 +8,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
@@ -23,27 +25,39 @@ import view.GerenciarProduto;
  */
 public class ProdutoController {
 
-    private IProdutoService produto;
-    private Map<String,Produto> map;
-    private GerenciarProduto view;
+    private final IProdutoService produto;
+    private List<Produto> produtos;
+    
+    private final GerenciarProduto view;
 
     public ProdutoController(IProdutoService produto, GerenciarProduto view) {
-        String[] coluna = {"Codigo","Nome","Valor"};
+
         this.produto = produto;
         this.view = view;
-        map = new HashMap<String,Produto>();
-        map.putAll(coluna,produto.listar());
         
+     
         view.addBtnCadastrar(new CadastraProduto());
-        view.setTblProduto(new DefaultTableModel());
+        
+        
+        produtos = produto.listar();
+        view.getTblProduto().setModel(new ProdutoTableModel(produtos));
     }
 
+    
     private class CadastraProduto implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            produto.inserir(new Produto(view.getTfCodigo(), view.getTfNome(), view.getTfValor()));
+            int cod = view.getTfCodigo();
+            String nome = view.getTfNome();
+            double valor = view.getTfValor();
             
+            produto.inserir(new Produto(cod, nome, valor));
+            produtos.clear();
+            
+            produtos = produto.listar();
+        
+            view.getTblProduto().setModel(new ProdutoTableModel(produtos));
         }
     }
     

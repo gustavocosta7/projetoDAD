@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import modelo.ICarrinho;
 import modelo.IProdutoService;
 import modelo.Item;
@@ -20,12 +21,15 @@ public class CompraController {
     private ICarrinho carrinho;
     private IProdutoService iProduto;
     private ItemTableModel tableModel;
+    private List<Item> itens;
 
     public CompraController(RealizarCompra view, ICarrinho carrinho, IProdutoService produto) {
         this.view = view;
         this.carrinho = carrinho;
         this.iProduto = produto;
-        tableModel = new ItemTableModel(carrinho.listar());
+        itens = carrinho.listar();
+        this.view.setTbItens(new ItemTableModel(itens));
+        
         
         view.addBtnIncluirListener(new IncluirListener());
     }
@@ -39,7 +43,11 @@ public class CompraController {
             Produto produto = iProduto.getProduto(new Produto(0, nomeProduto, 0));
             Item item = new Item(produto);
             carrinho.inserir(new Item(produto));
-            tableModel.setItens(carrinho.listar());
+            itens.clear();
+            itens = carrinho.listar();
+            
+            view.addBtnIncluirListener(new IncluirListener());
+            
         }
     }    
 }

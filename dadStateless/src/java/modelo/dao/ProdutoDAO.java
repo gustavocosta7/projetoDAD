@@ -16,10 +16,15 @@ import modelo.Produto;
  *
  * @author Aluno
  */
+
 public class ProdutoDAO {
-    
-    @PersistenceContext
+
     private EntityManager em;
+    
+    public ProdutoDAO(EntityManager em) {
+        this.em = em;
+    }
+
     
      public void inserir(Produto p){
          
@@ -51,7 +56,7 @@ public class ProdutoDAO {
     }
     
     public List<Produto> listarProdutos(){
-        String query = "seletc p from Produto p";
+        String query = "select p from Produto p";
         Query consulta = em.createQuery(query);
         return (List<Produto>) consulta.getResultList();
         

@@ -3,6 +3,7 @@ package modelo;
 
 import java.rmi.Remote;
 import java.util.List;
+import modelo.Item;
 
 
 public interface ICarrinhoBean extends Remote{

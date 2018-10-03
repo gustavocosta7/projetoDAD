@@ -9,9 +9,8 @@ import javax.ejb.Stateful;
 import modelo.Compra;
 import modelo.Item;
 
-
-@Stateful
 @Remote(ICarrinhoBean.class)
+@Stateful
 public class CarrinhoBean implements ICarrinhoBean{
 
     private Compra compra;

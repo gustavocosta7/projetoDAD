@@ -7,13 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.swing.table.DefaultTableModel;
 import modelo.IProdutoService;
 import modelo.Produto;
 import modelo.ProdutoTableModel;
@@ -35,9 +29,7 @@ public class ProdutoController {
         this.produto = produto;
         this.view = view;
         
-     
         view.addBtnCadastrar(new CadastraProduto());
-        
         
         produtos = produto.listar();
         view.getTblProduto().setModel(new ProdutoTableModel(produtos));

@@ -3,13 +3,13 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import modelo.ICarrinho;
 import modelo.IProdutoService;
 import modelo.Item;
 import modelo.ItemTableModel;
 import modelo.Produto;
 import modelo.ProdutoTableModel;
 import view.RealizarCompra;
+import modelo.ICarrinhoBean;
 
 /**
  *
@@ -18,16 +18,17 @@ import view.RealizarCompra;
 public class CompraController {
     
     private RealizarCompra view;
-    private ICarrinho carrinho;
+    private ICarrinhoBean carrinho;
     private IProdutoService iProduto;
     private ItemTableModel tableModel;
     private List<Item> itens;
 
-    public CompraController(RealizarCompra view, ICarrinho carrinho, IProdutoService produto) {
+    public CompraController(RealizarCompra view, ICarrinhoBean carrinho, IProdutoService produto) {
         this.view = view;
         this.carrinho = carrinho;
         this.iProduto = produto;
         itens = carrinho.listar();
+        
         this.view.setTbItens(new ItemTableModel(itens));
         
         

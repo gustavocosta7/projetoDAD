@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  * @author Aluno
  */
 public class ProdutoTableModel extends AbstractTableModel {
-    List<Produto> produtos = new ArrayList<Produto>();
+    List<Produto> produtos = null;
 
     public String[] colunas = {"Codigo", "Nome", "Valor"};
     

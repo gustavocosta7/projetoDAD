@@ -1,16 +1,14 @@
 package ejb;
 
 
+import controller.CompraController;
 import controller.ProdutoController;
-import java.security.AccessControlContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import modelo.ICarrinho;
 import modelo.IProdutoService;
-import modelo.Produto;
-import sun.rmi.log.ReliableLog;
 import view.GerenciarProduto;
 import view.RealizarCompra;
+import modelo.ICarrinhoBean;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,22 +25,22 @@ public class Principal {
         
         
         InitialContext context = new InitialContext();
-        IProdutoService produto = (IProdutoService) context.lookup("ejb:/dadStateless/ProdutoService!modelo.IProdutoService");
-       
+//        IProdutoService produto = (IProdutoService) context.lookup("ejb:/dadStateless/ProdutoService!modelo.IProdutoService");
+        
+        ICarrinhoBean carrinho = (ICarrinhoBean) context.lookup("ejb:/dadStateful/CarrinhoBean!modelo.ICarrinhoBean?stateful");
         
         
-//        
 //        RealizarCompra realizarCompra = new RealizarCompra();
 //       
 //        CompraController compraController = new CompraController(realizarCompra, carrinho, produto);
 //    
 //        realizarCompra.setVisible(true);
 //        realizarCompra.setLocationRelativeTo(null);
-        
-        
-        GerenciarProduto gerenciarProduto = new GerenciarProduto();
-        ProdutoController produtoController = new ProdutoController(produto, gerenciarProduto);
-        gerenciarProduto.setVisible(true);
-        gerenciarProduto.setLocationRelativeTo(null);
+//        
+//        
+//        GerenciarProduto gerenciarProduto = new GerenciarProduto();
+//        ProdutoController produtoController = new ProdutoController(produto, gerenciarProduto);
+//        gerenciarProduto.setVisible(true);
+//        gerenciarProduto.setLocationRelativeTo(null);
     }
 }
